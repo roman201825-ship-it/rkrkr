@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин iPhone</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f5f5f7; color: #1d1d1f; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        header { text-align: center; margin-bottom: 40px; }
+        h1 { font-size: 2.5rem; font-weight: 600; margin-bottom: 10px; }
+        .subtitle { font-size: 1.3rem; color: #86868b; }
+        .nav-btn { background-color: #0071e3; color: white; padding: 12px 24px; border-radius: 22px; text-decoration: none; font-size: 1rem; display: inline-block; transition: 0.3s; }
+        .nav-btn:hover { background-color: #0077ed; }
+        .container { max-width: 1000px; width: 100%; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 30px; box-sizing: border-box; }
+        .section-title { font-size: 2rem; margin-bottom: 30px; border-bottom: 1px solid #d2d2d7; padding-bottom: 10px; text-align: center; }
+        .iphone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .model-card { background: #fbfbfd; border: 1px solid #d2d2d7; border-radius: 12px; padding: 25px 20px; text-align: center; cursor: pointer; transition: 0.2s; }
+        .model-card:hover { transform: scale(1.02); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+        .model-name { font-size: 1.25rem; font-weight: 600; }
+        .color-panel { grid-column: 1 / -1; background: #f5f5f7; border-radius: 12px; padding: 20px; margin-top: 10px; display: none; }
+        .color-list { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; list-style: none; padding: 0; margin: 15px 0 0 0; }
+        .color-item { display: flex; flex-direction: column; align-items: center; font-size: 0.9rem; width: 90px; text-align: center; }
+        .color-circle { width: 35px; height: 35px; border-radius: 50%; margin-bottom: 8px; border: 2px solid #fff; box-shadow: 0 0 0 1px #d2d2d7; }
+        .form-container { max-width: 600px; width: 100%; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); box-sizing: border-box; margin-bottom: 40px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; }
+        input, select { width: 100%; padding: 12px; border: 1px solid #d2d2d7; border-radius: 8px; font-size: 1rem; box-sizing: border-box; background-color: #fbfbfd; }
+        input:focus, select:focus { outline: none; border-color: #0071e3; background-color: #fff; }
+        .submit-btn { width: 100%; background-color: #0071e3; color: white; padding: 14px; border: none; border-radius: 22px; font-size: 1rem; font-weight: 500; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .submit-btn:hover { background-color: #0077ed; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать в наш магазин!</h1>
+        <p class="subtitle">У нас вы можете заказать любую модель iPhone по лучшим ценам.</p>
+        <div style="margin-top: 20px;"><a href="#order-form" class="nav-btn">Заполнить заявку на заказ ↓</a></div>
+    </header>
+    <div class="container">
+        <h2 class="section-title">Выберите линейку, чтобы посмотреть цвета:</h2>
+        <div class="iphone-grid">
+            <div class="model-card" onclick="toggleColors('colors-11')"><div class="model-name">iPhone 11 Линейка</div></div>
+            <div id="colors-11" class="color-panel">
+                <h3>Доступные цвета для iPhone 11:</h3>
+                <ul class="color-list">
+                    <li class="color-item"><div class="color-circle" style="background-color: #f9f6ef;"></div>Белый</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #1c1d21;"></div>Черный</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #4e5b4e;"></div>Зеленый</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #f3d060;"></div>Желтый</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #ba0c2f;"></div>Красный</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #a3b8cc;"></div>Фиолетовый</li>
+                </ul>
+            </div>
+            <div class="model-card" onclick="toggleColors('colors-12')"><div class="model-name">iPhone 12 Линейка</div></div>
+            <div id="colors-12" class="color-panel">
+                <h3>Доступные цвета для iPhone 12:</h3>
+                <ul class="color-list">
+                    <li class="color-item"><div class="color-circle" style="background-color: #004364;"></div>Синий</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #daf0dd;"></div>Зеленый</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #fddcd3;"></div>Белый</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #f5e7c4;"></div>Золотой</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #3c3d3a;"></div>Графитовый</li>
+                </ul>
+            </div>
+            <div class="model-card" onclick="toggleColors('colors-13')"><div class="model-name">iPhone 13 Линейка</div></div>
+            <div id="colors-13" class="color-panel">
+                <h3>Доступные цвета для iPhone 13:</h3>
+                <ul class="color-list">
+                    <li class="color-item"><div class="color-circle" style="background-color: #f2f3ee;"></div>Светлый</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #1a232e;"></div>Темный</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #a7c1d6;"></div>Голубой</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #576856;"></div>Зеленый</li>
+                </ul>
+            </div>
+            <div class="model-card" onclick="toggleColors('colors-14')"><div class="model-name">iPhone 14 Линейка</div></div>
+            <div id="colors-14" class="color-panel">
+                <h3>Доступные цвета для iPhone 14:</h3>
+                <ul class="color-list">
+                    <li class="color-item"><div class="color-circle" style="background-color: #e8e2d7;"></div>Фиолетовый</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #f9f6ef;"></div>Серебристый</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #a0b4c7;"></div>Голубой</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #fee789;"></div>Желтый</li>
+                </ul>
+            </div>
+            <div class="model-card" onclick="toggleColors('colors-15')"><div class="model-name">iPhone 15 Линейка</div></div>
+            <div id="colors-15" class="color-panel">
+                <h3>Доступные цвета для iPhone 15:</h3>
+                <ul class="color-list">
+                    <li class="color-item"><div class="color-circle" style="background-color: #8c8d89;"></div>Натуральный</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #232426;"></div>Черный</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #dae5ea;"></div>Синий</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #fae0e4;"></div>Розовый</li>
+                </ul>
+            </div>
+            <div class="model-card" onclick="toggleColors('colors-16')"><div class="model-name">iPhone 16 Линейка</div></div>
+            <div id="colors-16" class="color-panel">
+                <h3>Доступные цвета для iPhone 16:</h3>
+                <ul class="color-list">
+                    <li class="color-item"><div class="color-circle" style="background-color: #3b3c3e;"></div>Черный титан</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #d1ced4;"></div>Белый титан</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #92afb8;"></div>Пустынный</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #00606e;"></div>Ультрамарин</li>
+                    <li class="color-item"><div class="color-circle" style="background-color: #e58299;"></div>Розовый</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="form-container" id="order-form">
+        <h2 class="section-title">Оформление заказа</h2>
+        <form onsubmit="sendOrder(event)">
+            <div class="form-group"><label for="name">Ваше имя:</label><input type="text" id="name" placeholder="Иван Иванов" required></div>
+            <div class="form-group"><label for="phone">Номер телефона:</label><input type="tel" id="phone" placeholder="+7 (999) 000-00-00" required></div>
+            <div class="form-group">
+                <label for="model">Выберите модель iPhone:</label>
+                <select id="model" required>
+                    <option value="" disabled selected>Выберите из списка...</option>
+                    <option value="iPhone 11">Линейка iPhone 11</option>
+                    <option value="iPhone 12">Линейка iPhone 12</option>
+                    <option value="iPhone 13">Линейка iPhone 13</option>
+                    <option value="iPhone 14">Линейка iPhone 14</option>
+                    <option value="iPhone 15">Линейка iPhone 15</option>
+                    <option value="iPhone 16">Линейка iPhone 16</option>
+                </select>
+            </div>
+            <div class="form-group"><label for="comment">Комментарий (цвет, память):</label><input type="text" id="comment" placeholder="Например: 16 Pro, Пустынный титан, 256гб"></div>
+            <button type="submit" class="submit-btn">Отправить заявку в Telegram</button>
+        </form>
+    </div>
+    <script>
+        function toggleColors(panelId) {
+            const panels = document.querySelectorAll('.color-panel');
+            panels.forEach(panel => { if(panel.id !== panelId) panel.style.display = 'none'; });
+            const currentPanel = document.getElementById(panelId);
+            currentPanel.style.display = (currentPanel.style.display === 'block') ? 'none' : 'block';
+        }
+        function sendOrder(event) {
+            event.preventDefault();
+            const TELEGRAM_BOT_TOKEN = '9195486263:AAGZVaN2w-9we80er0kMfRHrn1oBhPw_f1o';
+            const TELEGRAM_CHAT_ID = '5112157778';
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const model = document.getElementById('model').value;
+            const comment = document.getElementById('comment').value || 'Не указан';
+            const text = `🚨 *Новый заказ!*\n\n👤 *Имя:* ${name}\n📞 *Телефон:* ${phone}\n📱 *Модель:* ${model}\n💬 *Комментарий:* ${comment}`;
+            fetch(`https://telegram.org{TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: text, parse_mode: 'Markdown' })
+            })
+            .then(res => {
+                if (res.ok) { alert('Успешно отправлено!'); event.target.reset(); } 
+                else { alert('Ошибка! Проверь токен бота и ID.'); }
+            })
+            .catch(() => alert('Ошибка соединения.'));
+        }
+    </script>
+</body>
+</html>
